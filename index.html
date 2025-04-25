@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk to Peanut</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Talk to Peanut</h1>
+        <div id="pet" class="pet"></div> <!-- Peanut Avatar -->
+
+        <button onclick="talkToPeanut()">Talk to Peanut</button>
+        
+        <br><br>
+
+        <label for="userInput">Say something:</label>
+        <input type="text" id="userInput" placeholder="Type or speak">
+        <button onclick="speakUserMessage()">Speak</button>
+
+        <button onclick="startListening()">Start Listening</button> <!-- Activate Voice Recognition -->
+
+        <p id="statusText"></p> <!-- Display what Peanut or user says -->
+
+    </div>
+
+    <script src="script.js"></script> <!-- JavaScript for pet functionality -->
+
+</body>
+</html>

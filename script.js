@@ -2,6 +2,30 @@ const pet = document.getElementById('pet');
 const statusText = document.getElementById('statusText');
 const startListeningButton = document.getElementById('startListening');
 
+const messages = [
+    "Hi! I'm Peanut! *bounce*",
+    "Want to be friends? 🥜",
+    "I love talking to you!",
+    "*happy wiggles*",
+    "You're the best!",
+  ];
+  
+  const peanut = document.getElementById('peanut');
+  const messageElement = document.getElementById('message').querySelector('p');
+  
+  function getRandomMessage() {
+    return messages[Math.floor(Math.random() * messages.length)];
+  }
+  
+  peanut.addEventListener('click', () => {
+    peanut.classList.add('bounce');
+    messageElement.textContent = getRandomMessage();
+    
+    setTimeout(() => {
+      peanut.classList.remove('bounce');
+    }, 500);
+  });
+
 // Function to start listening to the user's voice in Hindi
 function startListening() {
     // Check if the browser supports speech recognition

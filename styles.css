@@ -1,18 +1,118 @@
+/* Reset margins, padding, and box-sizing for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+
+/* Heading styles */
+h1 {
+    font-size: 24px;
+    color: #ff8c00;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background:radial-gradient(#ffc47d,#ed9c39,#f39017);
+    margin: 0;
+    padding: 0;
+    background-color: #FFF5EC;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .chat-bubble {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    max-width: 20rem;
+  }
+  
+  .chat-bubble p {
+    margin: 0;
+    text-align: center;
+    color: #4a5568;
+  }
+  
+  .peanut {
+    cursor: pointer;
+  }
+  
+  .peanut.bounce {
+    animation: bounce 0.5s;
+  }
+  
+  .peanut-body {
+    width: 12rem;
+    height: 12rem;
+    background-color: #FFA500;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .peanut-face {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    background-color: #FDE1D3;
+    border-radius: 50%;
+    top: 1rem;
+  }
+  
+  .peanut-bottom {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: #FDE1D3;
+    border-radius: 50%;
+    bottom: 1rem;
+  }
+  
+  .eye {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background-color: black;
+    border-radius: 50%;
+    top: 40%;
+  }
+  
+  .eye.left {
+    left: 35%;
+  }
+  
+  .eye.right {
+    right: 35%;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 
+/* Container styles */
 .container {
     text-align: center;
     padding: 20px;
@@ -20,14 +120,10 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 400px;
+    max-width: 100%;
 }
 
-h1 {
-    font-size: 24px;
-    color: #ff8c00;
-    margin-bottom: 20px;
-}
-
+/* Button styles */
 button {
     background-color: #ff8c00;
     color: #fff;
@@ -43,45 +139,7 @@ button:hover {
     background-color: #e07b00;
 }
 
-#pet {
-    width: 200px;
-    height: 200px;
-    background-color: #ffebcd;
-    border-radius: 50%;
-    position: relative;
-    margin: 20px auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#pet::before {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background-color: #fff;
-    border-radius: 50%;
-    top: 20px;
-    left: 60px;
-}
-
-#pet::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 50%;
-    bottom: 20px;
-    left: 70px;
-}
-
-#statusText {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #555;
-    font-weight: bold;
-}
-
+/* Text input styles */
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -98,4 +156,103 @@ input[type="text"]:focus {
 
 input[type="text"]::placeholder {
     color: #aaa;
+}
+
+/* Status text styles */
+#statusText {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Media Queries for responsiveness */
+
+/* For screens smaller than 768px (Tablets) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #pet {
+        width: 180px; /* Adjust the pet size for tablets */
+        height: 180px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    #statusText {
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+    }
+}
+
+/* For screens smaller than 480px (Mobile Phones) */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    #pet {
+        width: 150px; /* Adjust the pet size for mobile phones */
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #statusText {
+        font-size: 12px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+    }
+}
+
+/* For very small devices (e.g., smaller phones or portrait mode on phones) */
+@media (max-width: 320px) {
+    .container {
+        width: 100%;
+        padding: 8px;
+    }
+
+    #pet {
+        width: 130px; /* Further reduce the pet size for very small screens */
+        height: 130px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    #statusText {
+        font-size: 12px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+    }
 }
